@@ -1,9 +1,21 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+/* ACTION de REDUX */
+import { crearNuevoProductoAction } from '../actions/productoAction'
 
 const NuevoProducto = () => {
 
-    const handleSubmit = event => {
-        event.preventDefault()
+    /* useDispatch , crea una funcion*/
+    const dispatch = useDispatch() /* Dispatch se utiliza para usar la funciones importadas en los actions */
+    const agregarProducto = () => dispatch(crearNuevoProductoAction())
+
+    /* manejado de submit */
+    const handleSubmit = evento => {
+        evento.preventDefault()
+        /* validacion de formulario */
+        /* si no existen errores */
+        /* crear nuevo producto */
+        agregarProducto();
     }
 
     return (
@@ -20,7 +32,7 @@ const NuevoProducto = () => {
                             <div className='form-group'>
                                 <label className=''>Nombre Producto</label>
                                 <input
-                                    required
+                                    // required
                                     className='form-control'
                                     type='text'
                                     name='nombre'
@@ -28,7 +40,7 @@ const NuevoProducto = () => {
                                 />
                                 <label className=''>Precio del producto</label>
                                 <input
-                                    required
+                                    // required
                                     className='form-control'
                                     type='number'
                                     name='precio'
