@@ -4,7 +4,6 @@ const EditarProducto = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        
     }
 
     return (
