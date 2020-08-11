@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 /* ACTION de REDUX */
 import { crearNuevoProductoAction } from '../actions/productoAction'
 
 const NuevoProducto = () => {
+    /* STATE DEL COMPONENTE */
+    const [datosProductos, setDatosProductos] = useState({
+        nombre: null,
+        precio: 0
+    })
 
     /* useDispatch , crea una funcion*/
     const dispatch = useDispatch() /* Dispatch se utiliza para usar la funciones importadas en los actions */
-    const agregarProducto = () => dispatch(crearNuevoProductoAction())
+    const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto))
 
     /* manejado de submit */
     const handleSubmit = evento => {
         evento.preventDefault()
         /* validacion de formulario */
+
         /* si no existen errores */
+
         /* crear nuevo producto */
-        agregarProducto();
+        agregarProducto(datosProductos);
+    }
+
+    const setInfo = input => {
+        setDatosProductos({
+            ...datosProductos,
+            [input.target.name]: input.target.value
+        })
     }
 
     return (
@@ -32,7 +46,9 @@ const NuevoProducto = () => {
                             <div className='form-group'>
                                 <label className=''>Nombre Producto</label>
                                 <input
-                                    // required
+                                    required
+                                    value={datosProductos.nombre}
+                                    onChange={setInfo}
                                     className='form-control'
                                     type='text'
                                     name='nombre'
@@ -40,7 +56,9 @@ const NuevoProducto = () => {
                                 />
                                 <label className=''>Precio del producto</label>
                                 <input
-                                    // required
+                                    required
+                                    value={datosProductos.precio}
+                                    onChange={setInfo}
                                     className='form-control'
                                     type='number'
                                     name='precio'
