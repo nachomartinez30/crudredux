@@ -28,6 +28,12 @@ export default (state = initialState, action) => {
                     action.payload
                 ]
             }
+        case AGREGAR_PRODUCTO_ERROR:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
         /* SI NO HAY ACCION, SE REGRESA EL STATE */
         default:
             return state;
