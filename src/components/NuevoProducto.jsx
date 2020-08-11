@@ -6,13 +6,22 @@ import { crearNuevoProductoAction } from '../actions/productoAction'
 const NuevoProducto = () => {
     /* STATE DEL COMPONENTE */
     const [datosProductos, setDatosProductos] = useState({
-        nombre: null,
+        nombre: '',
         precio: 0
     })
 
     /* useDispatch , crea una funcion*/
     const dispatch = useDispatch() /* Dispatch se utiliza para usar la funciones importadas en los actions */
     const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto))
+
+
+    /* 
+        ACCEDER AL STATE DEL STORE
+        useSelector permite acceder al state de REDUX
+     */
+    const cargando = useSelector(state => state.productos.loading)
+    const error = useSelector(state => state.productos.error)
+
 
     /* manejado de submit */
     const handleSubmit = evento => {
@@ -39,7 +48,7 @@ const NuevoProducto = () => {
                     <div className='card-body'>
                         <h1 className='text-center mb-4 font-weight-bold'>
                             Agregar Nuevo Producto</h1>
-
+                        {/* FORM */}
                         <form
                             onSubmit={handleSubmit}
                         >
@@ -72,6 +81,8 @@ const NuevoProducto = () => {
                                 Agregar
                             </button>
                         </form>
+                        {cargando && <p>Cargando...</p>}
+                        {error && <p className='alert alert-danger p2 mt-4 text-center'>Hubo un error</p>}
                     </div>
                 </div>
             </div>

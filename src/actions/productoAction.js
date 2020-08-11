@@ -39,12 +39,12 @@ export const crearNuevoProductoAction = (producto) => {
         dispatch(agregarProducto())
         /* INSERCION DE DATOS */
         try {
-            await clienteAxios.post('/hola', producto);
+            await clienteAxios.post('/productos', producto);
             /* DISPATCH ENVIA  */
             dispatch(agregarProductoExito(producto))
         } catch (error) {
-            debugger
             dispatch(agregarProductoError(true))
+            console.log(error);
         }
     }
 }
