@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 /* ACTION de REDUX */
 import { crearNuevoProductoAction } from '../actions/productoAction'
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ history }) => {
     /* STATE DEL COMPONENTE */
     const [datosProductos, setDatosProductos] = useState({
         nombre: '',
@@ -12,6 +12,7 @@ const NuevoProducto = () => {
 
     /* useDispatch , crea una funcion*/
     const dispatch = useDispatch() /* Dispatch se utiliza para usar la funciones importadas en los actions */
+    
     const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto))
 
 
@@ -32,6 +33,7 @@ const NuevoProducto = () => {
 
         /* crear nuevo producto */
         agregarProducto(datosProductos);
+        history.push('/')
     }
 
     const setInfo = input => {

@@ -24,6 +24,36 @@
       "nombre": "Jugo de Fresa",
       "precio": "200",
       "id": 5
-    }  
+    },
+    {
+      "nombre": "Rib Eye",
+      "precio": "475",
+      "id": 6
+    },
+    {
+      "nombre": "Oscar Ignacio",
+      "precio": "48",
+      "id": 7
+    },
+    {
+      "nombre": "nombre producto",
+      "precio": "45",
+      "id": 8
+    },
+    {
+      "nombre": "Oscar Ignacio",
+      "precio": "45",
+      "id": 9
+    },
+    {
+      "nombre": "Lorem",
+      "precio": "15",
+      "id": 10
+    },
+    {
+      "nombre": "Oscar Ignacio",
+      "precio": "45",
+      "id": 11
+    }
   ]
 }
