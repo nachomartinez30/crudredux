@@ -58,7 +58,7 @@ export const obtenerProductosAction = () => {
     return async (dispatch) => {
         dispatch(descargarProductos())
         try {
-            const resp = await clienteAxios.get('/productos');
+            const resp = await clienteAxios.get('/productosa');
             /* DISPATCH ENVIA DATOS A PRODUCTOS EXITOSA */
             dispatch(descargarProductosExito(resp.data))
             Swal.fire(
@@ -67,11 +67,6 @@ export const obtenerProductosAction = () => {
                 'success'
             )
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Hubo un error',
-                text: 'Intente de nuevo...',
-            })
             dispatch(descargarProductosError(true))
         }
     }

@@ -21,16 +21,13 @@ const Productos = () => {
     }, [])
 
 
-    /* MANEJO VER PRODUCTOS */
-    const handleVerProductos = () => {
-
-    }
-
     return (
         <Fragment>
             <h2 className='text-center my-5'>
                 Listado de Productos
            </h2>
+
+            {error ? <p className='font-weight-bold alert alert-danger text-center mt-4'>Hubo un eror</p> : null}
             <table className='table table-striped'>
                 <thead className='bg-primary table-dark'>
                     <tr>
