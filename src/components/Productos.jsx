@@ -11,6 +11,7 @@ const Productos = () => {
     /* SELECTOR PARA REDUX */
     const productos = useSelector(state => state.productos.productos)
     const error = useSelector(state => state.productos.error)
+    const cargando = useSelector(state => state.productos.loading)
 
     /* consultar API */
     const cargarProductos = () => dispatch(obtenerProductosAction())
@@ -28,6 +29,7 @@ const Productos = () => {
            </h2>
 
             {error ? <p className='font-weight-bold alert alert-danger text-center mt-4'>Hubo un eror</p> : null}
+            {cargando ? <p className='font-weight-bold alert alert-dark text-center mt-4'>Cargando...</p> : null}
             <table className='table table-striped'>
                 <thead className='bg-primary table-dark'>
                     <tr>

@@ -58,7 +58,7 @@ export const obtenerProductosAction = () => {
     return async (dispatch) => {
         dispatch(descargarProductos())
         try {
-            const resp = await clienteAxios.get('/productosa');
+            const resp = await clienteAxios.get('/productos');
             /* DISPATCH ENVIA DATOS A PRODUCTOS EXITOSA */
             dispatch(descargarProductosExito(resp.data))
             Swal.fire(
